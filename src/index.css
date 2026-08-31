@@ -1,0 +1,103 @@
+@import "tailwindcss";
+
+:root {
+  --bg: 255 245 248;
+  --card: 253 242 248;
+  --text: 30 41 59;
+  --muted: 100 116 139;
+  --line: 251 207 232;
+
+  --pink: 236 72 153;
+  --pink-2: 244 114 182;
+  --accent: 219 39 119;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  color: rgb(var(--text));
+  background-color: rgb(var(--bg));
+}
+
+/* Gradientes decorativos fixos ao viewport — não criam faixas ao scrollar */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(244, 114, 182, 0.32), transparent 55%),
+    radial-gradient(900px 500px at 90% 8%,   rgba(251, 207, 232, 0.50), transparent 60%),
+    radial-gradient(700px 500px at 60% 100%, rgba(244, 114, 182, 0.20), transparent 55%);
+  pointer-events: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+::selection {
+  background: rgba(236, 72, 153, 0.25);
+  color: rgb(var(--text));
+}
+
+.glass {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.85) 0%,
+    rgba(255, 240, 247, 0.65) 100%
+  );
+  border: 1px solid rgba(244, 114, 182, 0.22);
+  box-shadow:
+    0 20px 60px rgba(244, 114, 182, 0.18),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  backdrop-filter: blur(14px);
+  transition:
+    box-shadow 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(244, 114, 182, 0.18) 35%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(236, 72, 153, 0.16) 65%,
+    transparent 100%
+  );
+  transform: translateX(-30%) rotate(6deg);
+  opacity: 0;
+  transition: opacity 250ms ease;
+  pointer-events: none;
+}
+.shine:hover::after {
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgb(var(--bg));
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(244, 114, 182, 0.4);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(236, 72, 153, 0.6);
+}

@@ -1,0 +1,46 @@
+project_id = "YOUR_PROJECT_REF"
+
+[api]
+enabled = true
+port = 54321
+schemas = ["public", "storage", "graphql_public"]
+extra_search_path = ["public", "extensions"]
+max_rows = 1000
+
+[db]
+port = 54322
+shadow_port = 54320
+major_version = 17
+
+[studio]
+enabled = true
+port = 54323
+
+[auth]
+enabled = true
+site_url = "http://localhost:5173"
+additional_redirect_urls = ["http://localhost:5173"]
+
+[auth.external.discord]
+enabled = true
+client_id = "env(DISCORD_CLIENT_ID)"
+secret = "env(DISCORD_CLIENT_SECRET)"
+
+# Stripe webhook não pode validar JWT — assina com header próprio.
+[functions.stripe-webhook]
+verify_jwt = false
+
+[functions.create-payment-intent]
+verify_jwt = false
+
+# Functions chamadas pelo frontend com anon key (não JWT de user) — precisam
+# desligar verify_jwt. A segurança é feita dentro da função (validação
+# de payload + checks com service_role).
+[functions.validate-coupon]
+verify_jwt = false
+
+[functions.discord-add-to-guild]
+verify_jwt = false
+
+[functions.discord-check-membership]
+verify_jwt = false

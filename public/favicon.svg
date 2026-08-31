@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="kittyPink" x1="40" y1="32" x2="216" y2="224" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F9A8D4"/>
+      <stop offset="0.55" stop-color="#EC4899"/>
+      <stop offset="1" stop-color="#F472B6"/>
+    </linearGradient>
+  </defs>
+  <rect width="256" height="256" rx="56" fill="#FFF1F5"/>
+  <!-- ears -->
+  <path d="M70 70 L96 130 L48 122 Z" fill="url(#kittyPink)"/>
+  <path d="M186 70 L208 122 L160 130 Z" fill="url(#kittyPink)"/>
+  <!-- head -->
+  <ellipse cx="128" cy="148" rx="76" ry="62" fill="url(#kittyPink)"/>
+  <!-- bow (left ear) -->
+  <circle cx="78" cy="92" r="10" fill="#FFFFFF"/>
+  <path d="M68 92 L58 84 L58 100 Z" fill="#FFFFFF"/>
+  <path d="M88 92 L98 84 L98 100 Z" fill="#FFFFFF"/>
+  <circle cx="78" cy="92" r="3" fill="#EC4899"/>
+</svg>
